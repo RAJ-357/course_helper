@@ -1,0 +1,26 @@
+from streamlit_card import card
+import streamlit as st
+
+st.title("EXAMS")
+st.header("exams to be cleared")
+
+student_card1 = card(
+    title="JEE",
+    text="Click to view JEE details",
+    image="https://via.placeholder.com/150",
+    on_click=lambda: print("Clicked!")
+)
+
+student_card2 = card(
+    title="KCET",
+    text="Click to view KECET details",
+    image="https://via.placeholder.com/150",
+    on_click=lambda: print("Clicked!")
+    )
+
+student_card3 = card(
+        title="NEET",
+        text="Click to view NEET details",
+        image="https://via.placeholder.com/150",
+        on_click=lambda: print("Clicked!")
+)
