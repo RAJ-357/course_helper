@@ -45,7 +45,7 @@ b1 = st.button("Student")
 # }
 # </style>""", unsafe_allow_html=True)
 
-b2 = st.button("Undergraduate")
+#b2 = st.button("Undergraduate")
 
 student_card = card(
     title="Student",
