@@ -4,9 +4,8 @@ sys.tracebacklimit = 0
 from streamlit_card import card
 import streamlit as st
 import webbrowser
-
 st.set_page_config(
-    page_title="gate",
+    page_title="gre",
     initial_sidebar_state="collapsed",
 )
 
@@ -19,29 +18,31 @@ if User1 == "" :
     raise Exception("Sorry !!!")
 st.header("Hello :- "+ User1.capitalize())
 
-st.title("GATE")
+st.title("GRE")
 
 st.header("About: ")
-st.video("https://www.youtube.com/watch?v=U1N6PDrChHE&pp=ygUMd2hhdCBpcyBnYXRl", format="video/mp4", start_time=0)
+st.video("https://www.youtube.com/watch?v=k6JPVzekzbI", format="video/mp4", start_time=0)
 
 st.header("Top Institutions")
-col1, col2 = st.columns(2,gap = "medium")
+col1, col2 = st.columns(2)
 
 with col1:
     si1_card = card(
-    title="T.I.M.E",
+    title="Mahattan",
     text="Click to view more",
-    #image="https://via.placeholder.com/150",
-    on_click=lambda: webbrowser.open_new_tab("https://www.time4education.com/GATE")
+    image="https://via.placeholder.com/150",
+    on_click=lambda: webbrowser.open_new_tab("https://www.manhattanreview.com/gre/")
+
 )
     
 with col2:
     si1_card = card(
-    title="ACEEA",
+    title="TIME",
     text="Click to view more",
-    #image="https://via.placeholder.com/150",
-    on_click=lambda: webbrowser.open_new_tab("https://www.time4education.com/GATE")
+    image="https://via.placeholder.com/150",
+    on_click=lambda: webbrowser.open_new_tab("https://www.time4education.com/GRE/")
 )
+
 
 st.header("Sample Papers: ")
 st.markdown(
