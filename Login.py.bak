@@ -16,7 +16,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-stp.hide_pages(["Student","jee","kcet","neet","Undergrad","Category-Selection","Engineering","Engg-courses","WEB_DEV","DSA","Engg-exams","gate","gre","books","neetpg","dashboard","AIML","APP_DEV"]);
+stp.hide_pages(["Student","jee","kcet","neet","Undergrad","Category-Selection","Engineering","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","dashboard","AIML","APP_DEV"]);
 # show_pages(
     # [
         # Page("Login.py", "Login"),
