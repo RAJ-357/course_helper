@@ -3,7 +3,7 @@ from streamlit_card import card
 from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
 import mysql.connector
-conn1 = mysql.connector.connect(host="localhost", user="root", password="#MySQL123456789#",database='streamlit')
+conn1 = mysql.connector.connect(host="localhost", user="root", password="<PASSWORD>",database='streamlit')
 CSR1=conn1.cursor()
 
 
