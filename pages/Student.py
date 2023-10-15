@@ -6,7 +6,7 @@ import mysql.connector
 import sys
 import st_pages as stp
 sys.tracebacklimit = 0
-conn1 = mysql.connector.connect(host="localhost", user="root", password="#MySQL123456789#",database='streamlit')
+conn1 = mysql.connector.connect(host="localhost", user="root", password="<PASSWORD>",database='streamlit')
 CSR1=conn1.cursor()
 
 
