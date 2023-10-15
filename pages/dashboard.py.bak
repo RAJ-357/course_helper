@@ -1,0 +1,110 @@
+import streamlit as st
+import pandas as pd
+import os
+from streamlit_extras.switch_page_button import switch_page
+import sys
+import st_pages as stp
+sys.tracebacklimit = 0
+from streamlit_card import card
+
+st.set_page_config(
+    page_title="dash",
+    initial_sidebar_state="collapsed",
+)
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engineering","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
+# Function to load user data from CSV
+def load_user_data(username):
+    user_data_file = "user_goals.csv"
+    if os.path.exists(user_data_file):
+        df = pd.read_csv(user_data_file)
+        user_data = df[df["username"] == username].copy()
+        return user_data
+    else:
+        return pd.DataFrame(columns=["username", "Goal", "Completed"])
+
+# Function to save user data to CSV
+def save_user_data(username, user_data):
+    user_data_file = "user_goals.csv"
+    if os.path.exists(user_data_file):
+        df = pd.read_csv(user_data_file)
+    else:
+        df = pd.DataFrame(columns=["username", "Goal", "Completed"])
+    df = df[df["username"] != username]
+    df = pd.concat([df, user_data], ignore_index=True)
+    df.to_csv(user_data_file, index=False)
+
+if "username" not in st.session_state :
+    st.session_state["username"] = ""
+    
+username = st.session_state["username"]
+
+if username == "" :
+    st.error("No User Logon !!!")
+    st.success("Please go to Login Page to Login :")
+    raise Exception("Sorry !!!")
+
+
+# Create a Streamlit page for user registration
+st.title("Online Course Goal Tracker")
+
+# m = st.markdown("""
+# <style>
+# div.stButton > button:first-child {
+    # height : 5rem;
+    # width : 45rem;
+    # font-size : 12px;
+# }
+# </style>""", unsafe_allow_html=True)
+
+# b1 = st.button("Load/Create")
+# if b1 :
+    # st.success("Data Successfully Loaded !!!")
+
+# User registration
+# username = username
+# if st.button("Register"):
+    # st.success(f"User {username} registered!")
+
+# User login
+if username:
+    st.header("Welcome :- " + username.capitalize())
+    user_data = load_user_data(username)
+
+    # Add a new goal
+    new_goal = st.text_input("Add a new goal for your course:")
+    if st.button("Add Goal"):
+        if new_goal:
+            user_data = user_data.append({"username": username, "Goal": new_goal, "Completed": False}, ignore_index=True)
+            save_user_data(username, user_data)
+            new_goal = ""  # Clear the input field after adding
+
+    # Display user's goals and progress
+    st.header("Your Course Goals:")
+    goals_to_delete = []
+    for i, goal in user_data.iterrows():
+        goal_text = goal["Goal"]
+        completed = goal["Completed"]
+        delete_goal = st.checkbox(f"{i + 1}. {goal_text}", completed)
+        if delete_goal:
+            goals_to_delete.append(i)
+
+    if st.button("Mark Selected Goals as Completed"):
+        for goal_index in goals_to_delete:
+            user_data.at[goal_index, "Completed"] = True
+        save_user_data(username, user_data)
+
+    if st.button("Delete Selected Goals"):
+        user_data = user_data.drop(goals_to_delete)
+        save_user_data(username, user_data)
+
+    # Calculate and display progress
+    total_goals = len(user_data)
+    completed_goals = user_data["Completed"].sum()
+    progress = completed_goals / total_goals if total_goals > 0 else 0
+    st.subheader("Progress:")
+    st.progress(progress)
+
+    # Clear all goals
+    if st.button("Clear All Goals"):
+        user_data = pd.DataFrame(columns=["username", "Goal", "Completed"])
+        save_user_data(username, user_data)

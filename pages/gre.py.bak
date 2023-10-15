@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="gre",
     initial_sidebar_state="collapsed",
 )
-stp.hide_pages(["jee","kcet","neet","Category-Selection","DSA","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
 User1 = st.session_state["username"]

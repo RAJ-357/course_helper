@@ -2,13 +2,14 @@ from streamlit_card import card
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 import sys
+import st_pages as stp
 sys.tracebacklimit = 0
 
 st.set_page_config(
     page_title="STREAMS",
     initial_sidebar_state="collapsed",
 )
-
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engineering","DSA","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
 

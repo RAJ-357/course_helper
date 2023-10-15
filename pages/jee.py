@@ -3,7 +3,14 @@ from streamlit_card import card
 import streamlit as st
 import webbrowser
 import sys
+import st_pages as stp
 sys.tracebacklimit = 0
+
+st.set_page_config(
+    page_title="jee",
+    initial_sidebar_state="collapsed",
+)
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engineering","DSA","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 
 if "username" not in st.session_state :
     st.session_state["username"] = ""
@@ -13,6 +20,8 @@ if User1 == "" :
     st.error("No User Logon !!!")
     st.success("Please go to Login Page to Login :")
     raise Exception("Sorry !!!")
+
+
 
 st.header("Hello :- "+ User1.capitalize())
 st.title("JEE")
@@ -27,7 +36,7 @@ with col1:
     si1_card = card(
     title="ALLEN",
     text="Click to view more",
-    #image="https://via.placeholder.com/150",
+    image="https://via.placeholder.com/150",
     on_click=lambda: webbrowser.open_new_tab("https://www.allen.ac.in/kota/iit-jee-main-Advanced-coaching.asp?year=2023-24")
 
 )

@@ -4,6 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 import sys
+import st_pages as stp
 sys.tracebacklimit = 0
 from streamlit_card import card
 
@@ -40,7 +41,7 @@ st.set_page_config(
     page_title="books",
     initial_sidebar_state="collapsed",
 )
-
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","DSA","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
 User1 = st.session_state["username"]

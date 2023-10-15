@@ -5,12 +5,11 @@ from streamlit_card import card
 import streamlit as st
 import webbrowser
 import st_pages as stp
-
 st.set_page_config(
-    page_title="ntpg",
+    page_title="neet",
     initial_sidebar_state="collapsed",
 )
-stp.hide_pages(["jee","kcet","neet","DSA","Category-Selection","Engineering","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engineering","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
     
@@ -34,14 +33,19 @@ with col1:
     title="AAKASH",
     text="Click to view more",
     image="https://via.placeholder.com/150",
-    on_click=lambda: webbrowser.open_new_tab("https://aakash.ac.in/pgplus/")
+    on_click=lambda: webbrowser.open_new_tab("https://www.aakash.ac.in/classroom-courses?search_api_fulltext=&field_product_stream=15&field_product_classes=23&field_notification_select_stream=116&field_centers=2072&center_list_dropdown=2072")
 )
-
+    
+with col2:
+    si1_card = card(
+    title="ALLEN",
+    text="Click to view more",
+    image="https://via.placeholder.com/150",
+    on_click=lambda: webbrowser.open_new_tab("https://www.allen.ac.in/kota/neet-ug-aiims-coaching.asp?year=2023-24")
+)
 
 st.header("Sample Papers: ")
 st.markdown(
-    "- [Question Paper 1](https://medicoholic.com/wp-content/uploads/2021/06/NEET-PG-2012-Question-Paper-With-Solutions.pdf)\n"
-    "- [Question Paper 2](https://medicoholic.com/wp-content/uploads/2021/06/NEET-PG-2013-Question-Paper-With-Solutions.pdf)\n"
+    "- [Question Paper 1](https://medicine.careers360.com/download/sample-papers)\n"
 )
 
-   

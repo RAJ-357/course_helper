@@ -5,11 +5,12 @@ from streamlit_card import card
 import streamlit as st
 import webbrowser
 import st_pages as stp
+
 st.set_page_config(
-    page_title="gre",
+    page_title="gate",
     initial_sidebar_state="collapsed",
 )
-stp.hide_pages(["jee","kcet","neet","Category-Selection","DSA","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
 User1 = st.session_state["username"]
@@ -19,31 +20,29 @@ if User1 == "" :
     raise Exception("Sorry !!!")
 st.header("Hello :- "+ User1.capitalize())
 
-st.title("GRE")
+st.title("GATE")
 
 st.header("About: ")
-st.video("https://www.youtube.com/watch?v=k6JPVzekzbI", format="video/mp4", start_time=0)
+st.video("https://www.youtube.com/watch?v=U1N6PDrChHE&pp=ygUMd2hhdCBpcyBnYXRl", format="video/mp4", start_time=0)
 
 st.header("Top Institutions")
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2,gap = "medium")
 
 with col1:
     si1_card = card(
-    title="Mahattan",
+    title="T.I.M.E",
     text="Click to view more",
     image="https://via.placeholder.com/150",
-    on_click=lambda: webbrowser.open_new_tab("https://www.manhattanreview.com/gre/")
-
+    on_click=lambda: webbrowser.open_new_tab("https://www.time4education.com/GATE")
 )
     
 with col2:
     si1_card = card(
-    title="TIME",
+    title="ACEEA",
     text="Click to view more",
     image="https://via.placeholder.com/150",
-    on_click=lambda: webbrowser.open_new_tab("https://www.time4education.com/GRE/")
+    on_click=lambda: webbrowser.open_new_tab("https://www.time4education.com/GATE")
 )
-
 
 st.header("Sample Papers: ")
 st.markdown(

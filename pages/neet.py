@@ -4,12 +4,12 @@ sys.tracebacklimit = 0
 from streamlit_card import card
 import streamlit as st
 import webbrowser
-
+import st_pages as stp
 st.set_page_config(
     page_title="neet",
     initial_sidebar_state="collapsed",
 )
-
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engineering","DSA","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
     

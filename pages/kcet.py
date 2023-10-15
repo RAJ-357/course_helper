@@ -4,11 +4,12 @@ sys.tracebacklimit = 0
 from streamlit_card import card
 import streamlit as st
 import webbrowser
-
+import st_pages as stp
 st.set_page_config(
     page_title="kcet",
     initial_sidebar_state="collapsed",
 )
+stp.hide_pages(["jee","kcet","neet","Category-Selection","Engineering","DSA","Engg-courses","WEB_DEV","Engg-exams","gate","gre","books","neetpg","AIML","APP_DEV"]);
 if "username" not in st.session_state :
     st.session_state["username"] = ""
     
@@ -31,7 +32,7 @@ with col1:
     si1_card = card(
     title="ALLEN",
     text="Click to view more",
-    #image="https://via.placeholder.com/150",
+    image="https://via.placeholder.com/150",
     on_click=lambda: webbrowser.open_new_tab("https://www.allen.ac.in/kota/iit-jee-main-Advanced-coaching.asp?year=2023-24")
 
 )
@@ -40,7 +41,7 @@ with col2:
     si1_card = card(
     title="AAKASH",
     text="Click to view more",
-    #image="https://via.placeholder.com/150",
+    image="https://via.placeholder.com/150",
     on_click=lambda: webbrowser.open_new_tab("https://www.aakash.ac.in/")
 )
 
